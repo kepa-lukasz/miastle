@@ -2,8 +2,13 @@ import React, { useEffect, useState } from "react"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Axios from 'axios'
 import { Spinner, Button, Alert, Container } from "react-bootstrap"
+import ServerError from "./server_er"
+
 //icons
+import {MdOutlineEmail} from "react-icons/md"
 import {
+    BsAt,
+
     BsArrowDownLeftSquareFill,
     BsArrowDownSquareFill,
     BsArrowDownRightSquareFill,
@@ -24,19 +29,27 @@ const Game = () => {
     const [RenderedItem, setRenderedItem] = useState(spinner);
     const [city, setCity] = useState("")
     const [attempts, setAttempts] = useState([]);
+    const [error, setError] = useState(false);
     let [gameOn, setGameOn] = useState(true)
     let counter = 0
     let attemptsList = [];
     let miasto = ""
     let wojewodztwo = ""
 
+    //close server error
+    const hideError = (data) => {
+        setError(!data)
+      }
+
     //get city
     const newCity = () => {
-        Axios.get("https://wbhiy9wgrg.execute-api.us-east-2.amazonaws.com/get/randomcity")
+        Axios.get("https://neul0yywx5.execute-api.us-east-2.amazonaws.com/get/randomcity")
             .then((res) => {
                 let newCity = res.data.city;
                 setCity(newCity);
                 miasto = newCity
+            }).catch(() => {
+                setError(true)
             })
 
     }
@@ -47,7 +60,7 @@ const Game = () => {
         if (city === "") newCity()
 
         //get options list 
-        Axios.get("https://wbhiy9wgrg.execute-api.us-east-2.amazonaws.com/get/wojewodztwa")
+        Axios.get("https://neul0yywx5.execute-api.us-east-2.amazonaws.com/get/wojewodztwa")
             .then((res) => {
                 const list = res.data.wojewodztwa
                 const options = list.map((el) => { return (<option key={el}>{el}</option>) })
@@ -62,14 +75,16 @@ const Game = () => {
                         <Button disabled={!gameOn} onClick={check} className="p-0 py-2 w-25" variant="success">Sprawdź</Button>
                     </div>
                 setRenderedItem(RenderedInput)
+            }).catch(() => {
+                setError(true)
             })
         //change input value
-        
+
 
     }, [gameOn, wojewodztwo])
     const check = () => {
         //check if wojewodztwo is good, returns directions if no
-        Axios.post("https://wbhiy9wgrg.execute-api.us-east-2.amazonaws.com/post/guess", { 'attempt': wojewodztwo, 'city': miasto })
+        Axios.post("https://neul0yywx5.execute-api.us-east-2.amazonaws.com/post/guess", { 'attempt': wojewodztwo, 'city': miasto })
             .then((res) => {
                 let listElement;
                 counter = counter + 1;
@@ -106,11 +121,8 @@ const Game = () => {
                     case "right +":
                         listElement = <Alert variant="info text-center" key={counter}>{wojewodztwo}: <BsArrowRightSquareFill size={50} /></Alert>
                         break;
-                    case "doesn't exist":
-                        listElement = <Alert variant="danger" key={counter}>{wojewodztwo} : chyba nie ma takiego województwa, wybierz jedno z listy! </Alert>
-                        break;
                     default:
-                        listElement = <Alert variant="warning" key={counter}>Wystąpił błąd po stronie serwera :( </Alert>
+                        listElement = <Alert variant="danger" key={counter}>{wojewodztwo} : chyba nie ma takiego województwa, wybierz jedno z listy! </Alert>
 
                 }
                 //add hints to list
@@ -119,22 +131,27 @@ const Game = () => {
 
             })
             .catch(() => {
-                setAttempts([<Alert variant="warning" key={counter}>Wystąpił błąd po stronie klienta :( </Alert>])
+                setError(true)
             })
     }
     return (
-        <div className="w-75 m-auto">
-            <Alert variant={(city === "") ? "danger" : "warning"} className="d-flex justify-content-between p-0 w-100 m-0">
-                <h3 className="m-1">{city}</h3>
-                <Button onClick={() => { window.location.reload() }} variant="danger">Odśwież</Button>
-            </Alert>
-            <Container className="my-2">
-                {RenderedItem}
-            </Container>
-            {attempts}
+        <Container fluid>
+            {/* error */}
+           {(error)? <ServerError close={hideError}/> : null}
+
+            <div className="w-75 m-auto">
+                <Alert variant={(city === "") ? "danger" : "warning"} className="d-flex justify-content-between p-0 w-100 m-0">
+                    <h3 className="m-1">{city}</h3>
+                    <Button onClick={() => { window.location.reload() }} variant="danger">Odśwież</Button>
+                </Alert>
+                <Container className="my-2">
+                    {RenderedItem}
+                </Container>
+                {attempts}
 
 
-        </div>
+            </div>
+        </Container>
     )
 }
 export default Game
