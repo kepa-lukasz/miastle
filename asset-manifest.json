@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/miastle/static/css/main.756af292.css",
-    "main.js": "/miastle/static/js/main.a5522ebc.js",
+    "main.js": "/miastle/static/js/main.0715dacf.js",
     "static/js/787.2f30750d.chunk.js": "/miastle/static/js/787.2f30750d.chunk.js",
     "index.html": "/miastle/index.html",
     "main.756af292.css.map": "/miastle/static/css/main.756af292.css.map",
-    "main.a5522ebc.js.map": "/miastle/static/js/main.a5522ebc.js.map",
+    "main.0715dacf.js.map": "/miastle/static/js/main.0715dacf.js.map",
     "787.2f30750d.chunk.js.map": "/miastle/static/js/787.2f30750d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.756af292.css",
-    "static/js/main.a5522ebc.js"
+    "static/js/main.0715dacf.js"
   ]
 }
