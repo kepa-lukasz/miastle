@@ -7,9 +7,9 @@ import Navbar from './components/nav';
 function App() {
 
   return (
-    <Container  className='m-0 p-0 bg-dark' style={{maxWidth : "100%", minHeight : "100vh"}}>
+    <Container fluid className='m-0 p-0 bg-dark bg'>
       <Navbar/>
-    <Container  className='p-0 pt-5 bg-dark'>
+    <Container  className='p-0 pt-5 '>
      
       
       <Game />

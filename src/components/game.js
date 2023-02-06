@@ -65,7 +65,7 @@ const Game = () => {
                 const list = res.data.wojewodztwa
                 const options = list.map((el) => { return (<option key={el}>{el}</option>) })
                 const RenderedInput =
-                    <div className="mt-2 d-flex">
+                    <div className="m-0 p-0 mt-2 d-flex">
                         <div className="w-75 pe-2 m-0 mt-1">
                             <input list="data" placeholder="zacznij pisać..." className="w-100 py-1" onInput={(changeData)} />
                         </div>
