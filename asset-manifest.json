@@ -1,15 +1,16 @@
 {
   "files": {
-    "main.css": "/miastle/static/css/main.756af292.css",
-    "main.js": "/miastle/static/js/main.0715dacf.js",
+    "main.css": "/miastle/static/css/main.8e8470de.css",
+    "main.js": "/miastle/static/js/main.ed2958f0.js",
     "static/js/787.2f30750d.chunk.js": "/miastle/static/js/787.2f30750d.chunk.js",
+    "static/media/logo.png": "/miastle/static/media/logo.7539e3ccbbc44a543265.png",
     "index.html": "/miastle/index.html",
-    "main.756af292.css.map": "/miastle/static/css/main.756af292.css.map",
-    "main.0715dacf.js.map": "/miastle/static/js/main.0715dacf.js.map",
+    "main.8e8470de.css.map": "/miastle/static/css/main.8e8470de.css.map",
+    "main.ed2958f0.js.map": "/miastle/static/js/main.ed2958f0.js.map",
     "787.2f30750d.chunk.js.map": "/miastle/static/js/787.2f30750d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.756af292.css",
-    "static/js/main.0715dacf.js"
+    "static/css/main.8e8470de.css",
+    "static/js/main.ed2958f0.js"
   ]
 }
