@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/miastle/static/css/main.8e8470de.css",
+    "main.css": "/miastle/static/css/main.8f9dacce.css",
     "main.js": "/miastle/static/js/main.ed2958f0.js",
     "static/js/787.2f30750d.chunk.js": "/miastle/static/js/787.2f30750d.chunk.js",
-    "static/media/logo.png": "/miastle/static/media/logo.7539e3ccbbc44a543265.png",
+    "static/media/logo_alfa.png": "/miastle/static/media/logo_alfa.6c404b8b2dbba3661feb.png",
     "index.html": "/miastle/index.html",
-    "main.8e8470de.css.map": "/miastle/static/css/main.8e8470de.css.map",
+    "main.8f9dacce.css.map": "/miastle/static/css/main.8f9dacce.css.map",
     "main.ed2958f0.js.map": "/miastle/static/js/main.ed2958f0.js.map",
     "787.2f30750d.chunk.js.map": "/miastle/static/js/787.2f30750d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8e8470de.css",
+    "static/css/main.8f9dacce.css",
     "static/js/main.ed2958f0.js"
   ]
 }
