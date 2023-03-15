@@ -1,3 +1,4 @@
+**⚠ WARNING: App doesn't work because of lack of money for server :(**  
 # miastle 
 ## aplikacja typu wordle/countryle
 ### Instrukcja
